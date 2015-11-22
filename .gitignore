@@ -1,0 +1,12 @@
+#
+lib
+
+# Created by .ignore support plugin (hsz.mobi)
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+node_modules
+
