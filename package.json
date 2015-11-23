@@ -18,6 +18,10 @@
     "whitelist",
     "blacklist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rnsloan/redux-white-black.git"
+  },
   "author": "rnsloan1@gmail.com",
   "license": "ISC",
   "devDependencies": {
@@ -29,4 +33,3 @@
     "sinon": "^1.17.2"
   }
 }
-
