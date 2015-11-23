@@ -1,7 +1,5 @@
 # redux-white-black
 
-**Status: Experimental**
-
 Redux middleware to execute a callback on action types using a whitelist or blacklist approach
 
 ## Installation
