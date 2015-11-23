@@ -1,6 +1,6 @@
 {
   "name": "redux-white-black",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Redux middleware to execute a callback on action types using a whitelist or blacklist approach",
   "main": "lib/index.js",
   "scripts": {
