@@ -1,6 +1,4 @@
-const bw = {};
-
-bw.blacklist = (blacklistActions, callback) => {
+export const blacklist = (blacklistActions, callback) => {
   return store => next => action => {
     const result = next(action)
 
@@ -22,7 +20,7 @@ bw.blacklist = (blacklistActions, callback) => {
   }
 };
 
-bw.whitelist = (whitelistActions, callback) => {
+export const whitelist = (whitelistActions, callback) => {
   return store => next => action => {
     const result = next(action)
 
@@ -44,4 +42,7 @@ bw.whitelist = (whitelistActions, callback) => {
   }
 };
 
-export default bw;
+export default {
+  blacklist: blacklist,
+  whitelist: whitelist,
+};
