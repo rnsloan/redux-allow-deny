@@ -10,12 +10,17 @@ Redux middleware to execute a callback on action types using a whitelist or blac
 
 Both the whitelist and blacklist methods expect two parameters: 
 
-1. `Actions` (*array*) array of action types to check against
-2. `callback` (*function*) . Callback is passed two parameters:
-  1. `Action` (*object*) the action it has matched against
-  2. `state` (*object*) the state object with the methods `getState` and `dispatch`
+1. `Actions` (*array*) array of action types (*string*) to check against
+2. `callback` (*function*)
+
+The `callback` is passed two parameters:
+
+1. `Action` (*object*) the current action
+2. `state` (*object*) the state object with the methods `getState` and `dispatch`
 
 ### Example
+
+Note: recommended to move the middleware creation into a separate file  
 
 ```
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
@@ -37,7 +42,6 @@ function logShortlistActions(action, state) {
 const whitelist = bw.whitelist([CREATE_SHORTLIST, EDIT_SHORTLIST], logShortlistActions)
 
 // standard redux boilerplate:
-
 const createStoreWithMiddleware = compose(
   applyMiddleware(whitelist)
 )(createStore)
