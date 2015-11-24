@@ -3,12 +3,12 @@ export const blacklist = (blacklistActions, callback) => {
     const result = next(action)
 
     if (!Array.isArray(blacklistActions)) {
-      console.error('expected array as first argument', blacklistActions);
+      console.error('blacklist middleware expected array as first argument:', blacklistActions)
       return result
     }
 
     if (typeof callback !== 'function') {
-      console.error('expected function as callback', callback);
+      console.error('blacklist middleware expected function as callback:', callback)
       return result
     }
 
@@ -18,19 +18,19 @@ export const blacklist = (blacklistActions, callback) => {
 
     return result
   }
-};
+}
 
 export const whitelist = (whitelistActions, callback) => {
   return store => next => action => {
     const result = next(action)
 
     if (!Array.isArray(whitelistActions)) {
-      console.error('expected array as first argument', whitelistActions);
+      console.error('whitelist middleware expected array as first argument:', whitelistActions)
       return result
     }
 
     if (typeof callback !== 'function') {
-      console.error('expected function as callback', callback);
+      console.error('whitelist middleware expected function as callback:', callback)
       return result
     }
 
@@ -40,9 +40,9 @@ export const whitelist = (whitelistActions, callback) => {
 
     return result
   }
-};
+}
 
 export default {
   blacklist: blacklist,
   whitelist: whitelist,
-};
+}
