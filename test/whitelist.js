@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import sinon  from "sinon"
 import {createStore, applyMiddleware} from 'redux'
-import bw from "../lib"
+import wb from "../lib"
 
 describe("Whitelist", () => {
 
@@ -11,7 +11,7 @@ describe("Whitelist", () => {
   beforeEach(() => {
     callback = sinon.spy()
 
-    const whitelist = bw.whitelist(['ACTION_1', 'ACTION_2'], callback)
+    const whitelist = wb.whitelist(['ACTION_1', 'ACTION_2'], callback)
     const createStoreWithMiddleware = applyMiddleware(whitelist)(createStore)
 
     const initialState = { active: false }

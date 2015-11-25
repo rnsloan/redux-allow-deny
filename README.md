@@ -25,7 +25,7 @@ Note: recommended to move the middleware creation into a separate file
 ```
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import * as reducers from '../reducers'
-import bw from 'redux-white-black'
+import wb from 'redux-white-black'
 import {
   CREATE_SHORTLIST,
   EDIT_SHORTLIST,
@@ -39,7 +39,7 @@ function logShortlistActions(action, state) {
 }
 
 //create middleware to execute the callback if an Action has type 'CREATE_SHORTLIST' or 'EDIT_SHORTLIST'
-const whitelist = bw.whitelist([CREATE_SHORTLIST, EDIT_SHORTLIST], logShortlistActions)
+const whitelist = wb.whitelist([CREATE_SHORTLIST, EDIT_SHORTLIST], logShortlistActions)
 
 // standard redux boilerplate:
 const createStoreWithMiddleware = compose(
@@ -55,7 +55,7 @@ export default function configureStore(initialState) {
 Blacklist method works exactly the same
 
 ```
-const blacklist = bw.blacklist([CREATE_SHORTLIST, EDIT_SHORTLIST], logActionIfNotShortlist)
+const blacklist = wb.blacklist([CREATE_SHORTLIST, EDIT_SHORTLIST], logActionIfNotShortlist)
 ```
 
 
@@ -69,4 +69,4 @@ const whitelistMiddleware = whitelist([ACTION_1, ACTION_2], callback)
 
 ### Credit
 
-Inspired by this middleware: [github.com/michaelcontento/redux-storage](https://github.com/michaelcontento/redux-storage)
+Inspired by: [github.com/michaelcontento/redux-storage](https://github.com/michaelcontento/redux-storage)
