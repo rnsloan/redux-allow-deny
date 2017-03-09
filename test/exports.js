@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import sinon  from "sinon"
 import {createStore, applyMiddleware} from 'redux'
-import {whitelist, blacklist} from "../lib"
+import {whitelist, blacklist} from "../src"
 
 describe("Exports", () => {
   it("should be able to export the two methods individually", () => {
