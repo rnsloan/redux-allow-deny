@@ -7,7 +7,8 @@
     "build": "rm -rf lib && babel src -d lib",
     "prepublish": "npm run build",
     "start": "npm run build",
-    "test": "mocha test/ --recursive --compilers js:babel-register"
+    "test": "mocha test/ --recursive --compilers js:babel-register",
+    "version": "version-changelog CHANGELOG.md && git add CHANGELOG.md"
   },
   "babel": {
     "presets": [
@@ -32,7 +33,9 @@
     "babel-register": "^6.23.0",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "np": "^2.13.1",
     "redux": "^3.5.1",
-    "sinon": "^1.17.3"
+    "sinon": "^1.17.3",
+    "version-changelog": "^2.0.1"
   }
 }
