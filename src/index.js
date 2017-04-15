@@ -1,22 +1,24 @@
-const callbackOnPredicate = (predicate, callback) =>
-  store => next => action => {
-    const result = next(action);
+const callbackOnPredicate = (
+  predicate,
+  callback
+) => store => next => action => {
+  const result = next(action);
 
-    if (predicate(action.type)) {
-      callback(action, store);
-    }
+  if (predicate(action.type)) {
+    callback(action, store);
+  }
 
-    return result;
-  };
+  return result;
+};
 
 export const blacklist = (blacklistActions, callback) => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== "production") {
     if (!Array.isArray(blacklistActions)) {
-      throw new Error('blacklist middleware expected array as first argument');
+      throw new Error("blacklist middleware expected array as first argument");
     }
 
-    if (typeof callback !== 'function') {
-      throw new Error('blacklist middleware expected function as callback');
+    if (typeof callback !== "function") {
+      throw new Error("blacklist middleware expected function as callback");
     }
   }
 
@@ -27,13 +29,13 @@ export const blacklist = (blacklistActions, callback) => {
 };
 
 export const whitelist = (whitelistActions, callback) => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== "production") {
     if (!Array.isArray(whitelistActions)) {
-      throw new Error('whitelist middleware expected array as first argument');
+      throw new Error("whitelist middleware expected array as first argument");
     }
 
-    if (typeof callback !== 'function') {
-      throw new Error('whitelist middleware expected function as callback');
+    if (typeof callback !== "function") {
+      throw new Error("whitelist middleware expected function as callback");
     }
   }
 
