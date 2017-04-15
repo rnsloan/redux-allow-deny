@@ -8,7 +8,7 @@ Redux middleware to execute a callback on action types using a whitelist or blac
 
 ## Usage
 
-Both the whitelist and blacklist methods expect two parameters: 
+Both the whitelist and blacklist methods expect two parameters:
 
 1. `Actions` (*array*) array of action types (*string*) to check against
 2. `callback` (*function*)
@@ -25,7 +25,7 @@ Note: recommended to move the middleware creation into a separate file
 ```
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import * as reducers from '../reducers'
-import wb from 'redux-white-black'
+import * as wb from 'redux-white-black'
 import {
   CREATE_SHORTLIST,
   EDIT_SHORTLIST,
