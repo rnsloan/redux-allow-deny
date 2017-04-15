@@ -1,6 +1,6 @@
 {
   "name": "redux-white-black",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "description": "Redux middleware to execute a callback on action types using a whitelist or blacklist approach",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "prepublish": "npm run build",
     "start": "npm run build",
     "test": "mocha test/ --recursive --compilers js:babel-register",
-    "version": "version-changelog CHANGELOG.md && git add CHANGELOG.md"
+    "version": "update-changelog CHANGELOG.md"
   },
   "babel": {
     "presets": [
@@ -30,9 +30,8 @@
     "babel-register": "^6.23.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "np": "^2.13.1",
     "redux": "^3.5.1",
     "sinon": "^2.1.0",
-    "version-changelog": "^2.0.1"
+    "update-changelog": "^1.0.1"
   }
 }
