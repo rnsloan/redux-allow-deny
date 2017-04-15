@@ -67,10 +67,6 @@ import {whitelist} from "redux-white-black"
 const whitelistMiddleware = whitelist([ACTION_1, ACTION_2], callback)
 ```
 
-## Publishing
-
-`np <major|minor|patch>`
-
 ## Credit
 
 Inspired by: [github.com/michaelcontento/redux-storage](https://github.com/michaelcontento/redux-storage)
