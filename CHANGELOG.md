@@ -9,5 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Default import removed. See README for import options
 
 ### Added
+- yarn support
 - `np` for publishing
 - `CHANGELOG.md` & `PULL_REQUEST_TEMPLATE.md`
