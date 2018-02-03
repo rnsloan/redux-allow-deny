@@ -1,8 +1,7 @@
 {
   "name": "redux-white-black",
-  "version": "1.0.1",
-  "description":
-    "Redux middleware to execute a callback on action types using a whitelist or blacklist approach",
+  "version": "1.1.0",
+  "description": "Redux middleware to execute a callback on action types using a whitelist or blacklist approach",
   "main": "lib/index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -12,9 +11,16 @@
     "test": "mocha test/ --recursive --compilers js:babel-register"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
-  "keywords": ["redux", "middleware", "whitelist", "blacklist"],
+  "keywords": [
+    "redux",
+    "middleware",
+    "whitelist",
+    "blacklist"
+  ],
   "repository": "https://github.com/rnsloan/redux-white-black.git",
   "author": "rnsloan1@gmail.com",
   "license": "ISC",
