@@ -11,36 +11,36 @@ const callbackOnPredicate = (
   return result;
 };
 
-export const blacklist = (blacklistActions, callback) => {
+export const denylist = (denylistActions, callback) => {
   if (process.env.NODE_ENV !== "production") {
-    if (!Array.isArray(blacklistActions)) {
-      throw new Error("blacklist middleware expected array as first argument");
+    if (!Array.isArray(denylistActions)) {
+      throw new Error("denylist middleware expected array as first argument");
     }
 
     if (typeof callback !== "function") {
-      throw new Error("blacklist middleware expected function as callback");
+      throw new Error("denylist middleware expected function as callback");
     }
   }
 
   return callbackOnPredicate(
-    type => blacklistActions.indexOf(type) === -1,
+    type => denylistActions.indexOf(type) === -1,
     callback
   );
 };
 
-export const whitelist = (whitelistActions, callback) => {
+export const allowlist = (allowlistActions, callback) => {
   if (process.env.NODE_ENV !== "production") {
-    if (!Array.isArray(whitelistActions)) {
-      throw new Error("whitelist middleware expected array as first argument");
+    if (!Array.isArray(allowlistActions)) {
+      throw new Error("allowlist middleware expected array as first argument");
     }
 
     if (typeof callback !== "function") {
-      throw new Error("whitelist middleware expected function as callback");
+      throw new Error("allowlist middleware expected function as callback");
     }
   }
 
   return callbackOnPredicate(
-    type => whitelistActions.indexOf(type) !== -1,
+    type => allowlistActions.indexOf(type) !== -1,
     callback
   );
 };

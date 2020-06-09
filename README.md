@@ -1,14 +1,14 @@
-# redux-white-black
+# redux-allow-deny
 
-Redux middleware to execute a callback on action types using a whitelist or blacklist approach
+Redux middleware to execute a callback on action types using a allowlist or denylist approach
 
 ## Installation
 
-`npm install --save redux-white-black`
+`npm install --save redux-allow-deny`
 
 ## Usage
 
-Both the whitelist and blacklist methods expect two parameters:
+Both the allowlist and denylist methods expect two parameters:
 
 1. `Actions` (*array*) array of action types (*string*) to check against
 2. `callback` (*function*)
@@ -25,7 +25,7 @@ Note: recommended to move the middleware creation into a separate file
 ```
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import * as reducers from '../reducers'
-import * as wb from 'redux-white-black'
+import * as wb from 'redux-allow-deny'
 import {
   CREATE_SHORTLIST,
   EDIT_SHORTLIST,
@@ -39,11 +39,11 @@ function logShortlistActions(action, state) {
 }
 
 //create middleware to execute the callback if an Action has type 'CREATE_SHORTLIST' or 'EDIT_SHORTLIST'
-const whitelist = wb.whitelist([CREATE_SHORTLIST, EDIT_SHORTLIST], logShortlistActions)
+const allowlist = wb.allowlist([CREATE_SHORTLIST, EDIT_SHORTLIST], logShortlistActions)
 
 // standard redux boilerplate:
 const createStoreWithMiddleware = compose(
-  applyMiddleware(whitelist)
+  applyMiddleware(allowlist)
 )(createStore)
 
 
@@ -52,19 +52,19 @@ export default function configureStore(initialState) {
 }
 ```
 
-Blacklist method works exactly the same
+denylist method works exactly the same
 
 ```
-const blacklist = wb.blacklist([CREATE_SHORTLIST, EDIT_SHORTLIST], logActionIfNotShortlist)
+const denylist = wb.denylist([CREATE_SHORTLIST, EDIT_SHORTLIST], logActionIfNotShortlist)
 ```
 
 
 The methods can be exported individually:
 
 ```
-import {whitelist} from "redux-white-black"
+import {allowlist} from "redux-allow-deny"
 
-const whitelistMiddleware = whitelist([ACTION_1, ACTION_2], callback)
+const allowlistMiddleware = allowlist([ACTION_1, ACTION_2], callback)
 ```
 
 ## Credit
