@@ -1,17 +1,17 @@
 import { expect } from "chai";
 import sinon from "sinon";
 import { createStore, applyMiddleware } from "redux";
-import { blacklist } from "../src";
+import { denylist } from "../src";
 
-describe("Blacklist", () => {
+describe("denylist", () => {
   let store;
   let callback;
 
   beforeEach(() => {
     callback = sinon.spy();
 
-    const blacklistMiddleware = blacklist(["ACTION_1", "ACTION_2"], callback);
-    const createStoreWithMiddleware = applyMiddleware(blacklistMiddleware)(
+    const denylistMiddleware = denylist(["ACTION_1", "ACTION_2"], callback);
+    const createStoreWithMiddleware = applyMiddleware(denylistMiddleware)(
       createStore
     );
 
@@ -38,7 +38,7 @@ describe("Blacklist", () => {
     store = createStoreWithMiddleware(reducer, initialState);
   });
 
-  describe("Action called is not in the blacklist", () => {
+  describe("Action called is not in the denylist", () => {
     it("should not find the action in the list and therefore execute the callback", () => {
       expect(callback.called).to.be.false;
       store.dispatch({ type: "ACTION_3" });
@@ -68,7 +68,7 @@ describe("Blacklist", () => {
     });
   });
 
-  describe("Action called is in the blacklist", () => {
+  describe("Action called is in the denylist", () => {
     it("should find the action in the list and therefore not execute the callback", () => {
       expect(callback.called).to.be.false;
       store.dispatch({ type: "ACTION_1" });
