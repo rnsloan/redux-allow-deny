@@ -1,6 +1,6 @@
 {
   "name": "redux-allow-deny",
-  "version": "2.1.1",
+  "version": "2.1.4",
   "description": "Redux middleware to execute a callback on action types using a allowlist or denylist approach",
   "main": "lib/index.js",
   "types": "index.d.ts",
